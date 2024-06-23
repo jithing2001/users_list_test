@@ -9,7 +9,11 @@ import 'views/home_screen/user_detail_screen.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Get the application documents directory for storing the Hive database
   final appDocDir = await getApplicationDocumentsDirectory();
+
+  // Initialize Hive with the application documents directory path
   Hive
     ..init(appDocDir.path)
     ..registerAdapter(UserModelAdapter())
